@@ -19,7 +19,10 @@ export class MainPageComponent {
   }];
 
   onNewCharacter(character: Character): void {
-    console.log('MainPage');
-    console.log(character);
+    this.characters.push(character); // Afegeix element al final de l'array
+  }
+
+  onDeleteCharacter(index: number) {
+    this.characters.splice(index, 1); // Elimina 1 element (nomes el de l'index que indica. Sino esborraria tot a partir d'aquell index)
   }
 }
