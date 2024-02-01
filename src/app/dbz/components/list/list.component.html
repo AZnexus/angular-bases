@@ -1,8 +1,25 @@
 <h4>List</h4>
 <ul class="list-group">
-  <li *ngFor="let character of characterList" class="list-group-item">
+  <!-- Aquests let que hi ha no es lo habitual. Estan posats unicament per probar coses -->
+  <li *ngFor="
+    let character of characterList;
+    let i = index;
+    let isFirst = first;
+    let isLast = last;
+    let isEven = even;
+    let isOdd = odd;
+    " class="list-group-item"
+    [ngClass]="{
+      'list-group-item-success': isLast,
+      'list-group-item-primary': isEven
+      }">
+    <span class="text-primary">{{i + 1}}. </span>
     <span>{{character.name}} - </span>
     <strong>Power: </strong>
     <span>{{character.power}}</span>
+    <!-- <span> - Es el primero: {{isFirst}}</span>
+    <span> - Es el último: {{isLast}}</span>
+    <span> - Es par: {{isEven}}</span>
+    <span> - Es impar: {{isOdd}}</span> -->
   </li>
 </ul>
